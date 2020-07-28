@@ -57,10 +57,13 @@ export default class Game extends Component {
         let status;
         if(winner){
             status = 'Winner is ' + winner;
-        } else {
-            status = 'Next player is ' + (this.state.xIsNext?'x':'o');
+        } else{
+            if (this.state.stepNumber > 8){
+                status = 'NO WINNER! try it again....'    
+            }else {
+                status = 'Next player is ' + (this.state.xIsNext?'x':'o');
+            }
         }
-
         return (
             <div className="game">
                 <div className="game-board">
